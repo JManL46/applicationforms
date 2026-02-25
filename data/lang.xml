@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+ <app key="applicationform" version="10048">
+  <word key="__app_applicationform" js="0">Application Forms</word>
+  <word key="position_name" js="0">Form Name</word>
+  <word key="position_description" js="0">Description</word>
+  <word key="position_description_placeholder" js="0">Click to add description...</word>
+  <word key="application_position" js="0">Application Forms</word>
+  <word key="acp_search_title_applicationform_Position" js="0">Application Positions</word>
+  <word key="application_position_add_child" js="0">Add field</word>
+  <word key="menu__applicationform_forms" js="0">Application Forms</word>
+  <word key="menu__applicationform_forms_position" js="0">Forms</word>
+  <word key="frontnavigation_form" js="0">form</word>
+  <word key="module__applicationform_applications" js="0">Applications</word>
+  <word key="position_target_forum" js="0">Target Forum</word>
+  <word key="open_positions" js="0">Open Applications</word>
+  <word key="navbar_open_positions" js="0">Open Applications</word>
+  <word key="r__position" js="0">Positions</word>
+  <word key="r__position_manage" js="0">Can manage positions</word>
+  <word key="position_bw_open_poll" js="0">Poll</word>
+  <word key="position_bw_open_poll_desc" js="0">Create the defined voteoptions in the topic.</word>
+  <word key="position_bw_create_topic" js="0">Create Topic</word>
+  <word key="application_form" js="0">Application</word>
+  <word key="position_primary_group" js="0">Move user into this group</word>
+  <word key="position_secondary_group" js="0">Add user into secondary groups</word>
+  <word key="applications_member_id" js="0">Member</word>
+  <word key="applications_topic_id" js="0"></word>
+  <word key="applications_votes" js="0">Topic Votes</word>
+  <word key="position_apply" js="0">Apply</word>
+  <word key="applications_approved" js="0">Approved</word>
+  <word key="applications_approve" js="0">Approve</word>
+  <word key="applications_deny" js="0">Deny</word>
+  <word key="applications_overview_page" js="0">On the Advertisements Overview Page</word>
+  <word key="applications_do_not_change" js="0">Do not change</word>
+  <word key="appformperm_perm__label" js="0"></word>
+  <word key="appformperm_perm__view" js="0">Can view Application</word>
+  <word key="appformperm_perm__reply" js="0">Can apply</word>
+  <word key="appformperm_perm__manage" js="0">Manage Submissions</word>
+  <word key="position_bw_apply_only_once" js="0">Allow your members to apply only once</word>
+  <word key="trophy_position_applied" js="0">User applied to at least X applications</word>
+  <word key="block_OpenPositions" js="0">Open Applications</word>
+  <word key="block_OpenPositions_desc" js="0"></word>
+  <word key="position_topictitle" js="0">Topic Title</word>
+  <word key="editor__Application" js="0">Applications Editor</word>
+  <word key="editor__Position" js="0">Applications Position Editor</word>
+  <word key="navbar_positions_node" js="0">Specific Application Form</word>
+  <word key="applicationsforms_position_id" js="0">Application Form</word>
+  <word key="editor__applicationform_Application" js="0">Application Form</word>
+  <word key="editor__applicationform_Position" js="0">Position Form</word>
+  <word key="application_benefits" js="0">Application Benefits</word>
+  <word key="application_submitted" js="0">Submitted</word>
+  <word key="application_actions" js="0">Actions</word>
+  <word key="application_Data" js="0">Data</word>
+  <word key="position_bw_log_data" js="0">Log Data</word>
+  <word key="modperms__applicationform_ManageApplications" js="0">Application Forms</word>
+  <word key="can_see_applicationdata" js="0">Can manage Submissions</word>
+  <word key="modcp_application_approval" js="0">Applications</word>
+  <word key="applications_data" js="0"></word>
+  <word key="applicationform_view_data" js="0">Manage</word>
+  <word key="applications_date" js="0">Date</word>
+  <word key="position_instructions" js="0">Instructions</word>
+  <word key="position_description_instructions" js="0">Click to add instructions</word>
+  <word key="manage_submissions" js="0">Manage Submissions</word>
+  <word key="open_submissions" js="0">Open Submissions</word>
+  <word key="member_details" js="0">Details</word>
+  <word key="position_submitmsg" js="0">Submit Message</word>
+  <word key="application_not_usable" js="0">Application not usable yet.Please add Fields to this Form</word>
+  <word key="submission_details" js="0">Data</word>
+  <word key="submission_status" js="0">Current Status</word>
+  <word key="submission_approved_by" js="0">Approved by</word>
+  <word key="position_description_submitmsg" js="0">Click to add Submit Message</word>
+  <word key="ipAddresses__applicationform_Submission" js="0">Application Form Submissions</word>
+  <word key="app_already_applied" js="0">You can apply only once to this position</word>
+  <word key="app_no_reply_perm" js="0">You are not allowed to submit this form</word>
+  <word key="can_fapp_delete_submissions" js="0">Can delete Submissions</word>
+  <word key="position_bw_vertical" js="0">Output Type</word>
+  <word key="position_bw_vertical_desc" js="0">Title of each field will be next to (Horizontal) or above (Vertical) the input.</word>
+  <word key="applicationform_post_approved" js="0">%s approved the submission</word>
+  <word key="applicationform_post_denied" js="0">%s denied the submission</word>
+  <word key="position_bw_create_topic_reply" js="0">Create automatic post on state change</word>
+  <word key="applicationform_Application_event_application_approved" js="0">Application Approved</word>
+  <word key="applicationform_Application_event_application_denied" js="0">Application Denied</word>
+  <word key="applicationform_Application_event_submission_approved" js="0">Application Submission Approved</word>
+  <word key="applicationform_Application_event_submission_denied" js="0">Application Submission Denied</word>
+  <word key="applicationform_Application_actions_approve_application" js="0">Approve Application Submission</word>
+  <word key="mailsub__applicationform_notification_submission" js="0">New Application Submission</word>
+  <word key="position_bw_create_pm" js="0">Send Private Message</word>
+  <word key="editor__applicationform_Pm" js="0">Editor Pm</word>
+  <word key="position_pm_title" js="0">Private Message Title</word>
+  <word key="position_pm_content" js="0">Content</word>
+  <word key="filestorage__applicationform_Fields" js="0">Application Forms Attachment</word>
+  <word key="position_bw_create_post" js="0">Create Post</word>
+  <word key="position_target_post" js="0">Target Topic</word>
+  <word key="go_to_the_application" js="0">Go to the Application</word>
+  <word key="position_remove_promotion" js="0">Reset groups after specific time?</word>
+  <word key="position_groupdemotion_time" js="0">Timeframe</word>
+  <word key="applicationform_group_changed" js="0">Group changed by %s from %s to %s</word>
+  <word key="history_group_change_appform_primary" js="0"><![CDATA[Primary Group changed by Application Form<a>%s</a> from %s to %s.]]></word>
+  <word key="history_group_change_appform_secondary" js="0"><![CDATA[Secondary group changed by Application Form <a>%s</a> from %s to %s.]]></word>
+  <word key="notifications__applicationform_Submission" js="0">Application Forms</word>
+  <word key="notifications__submission" js="0">New Submission</word>
+  <word key="forum_applicationform_create" js="0">New Application</word>
+  <word key="forum_applicationform_create_desc" js="0">Creates a new Application</word>
+  <word key="filestorage__applicationform_Icons" js="0">Application Form Icons</word>
+  <word key="position_icon" js="0">Form icon</word>
+  <word key="position_icon_desc" js="0">The icon displays next to the application form.</word>
+  <word key="position_vote_options" js="0">Vote options</word>
+  <word key="position_vote_options_desc" js="0">The voteoptions in the topic. At least one is required.</word>
+  <word key="appform_voteoption_yes" js="0">Yes</word>
+  <word key="appform_voteoption_no" js="0">No</word>
+  <word key="applicationform_invalid_title" js="0">Invalid Topic Title</word>
+  <word key="position_redirect_target" js="0">Redirect Target</word>
+  <word key="position_redirect_target_desc" js="0"><![CDATA[Where should members be redirected after the submission?<br>Leave blank to show default "thx page"]]></word>
+  <word key="appform_approve" js="1">Approve</word>
+  <word key="appform_approve_confirm" js="1">This form is already marked as Approved. Are you sure you want to proceed?</word>
+  <word key="appform_deny" js="1">Deny</word>
+  <word key="appform_deny_confirm" js="1">This form is already marked as Denied. Are you sure you want to proceed?</word>
+ </app>
+</language>

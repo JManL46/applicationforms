@@ -1,0 +1,14 @@
+{
+    "admin": {
+        "forms": {
+            "default_controller": "",
+            "protected": 0
+        }
+    },
+    "front": {
+        "applications": {
+            "default_controller": "form",
+            "protected": 0
+        }
+    }
+}

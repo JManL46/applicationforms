@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="Default" author_name="Invision Power Services, Inc" author_url="https://www.invisioncommunity.com">
+ <template template_group="data" template_name="details" template_data="$details" template_location="front" template_app="applicationform"><![CDATA[<h2 class='ipsType_sectionHead ipsSpacer_bottom'>{$details->position->_title}</h2>
+
+<div class=" ipsPad ipsBox" data-controller='applicationform.front.modcp.item'>
+	<br>{lang="submission_status"}: {$details->status} {{if $details->approved == 1}}<br>
+	{lang="submission_approved_by"}: {$details->approved_by|raw}{{endif}}
+	<br>
+	{{if $details->topic}}
+		<a href="{$details->topic->url()}" target="_blank">{lang="topic"}</a>
+		{{if $poll = $details->topic->getPoll()}}
+			{$poll|raw}
+		{{endif}}
+	{{endif}}
+	<div class="ipsPageHeader ipsClearfix ipsSpacer_bottom ">
+		<ul class="ipsToolList ipsToolList_horizontal ipsClearfix ipsPos_right">
+			<li><a href="{$details->modcpUrl('approve')}" class="ipsButton ipsButton_medium ipsButton_important" data-action="approve"> {lang="applications_approve"} </a></li>
+			<li><a href="{$details->modcpUrl('denial')}" class="ipsButton ipsButton_medium ipsButton_alternate" data-action="deny">  {lang="applications_deny"} </a></li>
+			{{if \IPS\Member::loggedIn()->modPermission('can_fapp_delete_submissions')}}
+			<li><a href="{$details->modcpUrl('delete')}" class="ipsButton ipsButton_medium ipsButton_negative" data-action="delete"> {lang="delete"} </a></li>
+			{{endif}}
+		</ul>
+	</div>
+
+	<div class=" ipsGrid">
+		<div class="ipsGrid_span6">
+			<ul class="ipsList_reset">
+				<li><h2>{lang="member_details"}</h2></li>
+				<li>{lang="username"}: {$details->member->link()|raw}</li>
+				<li>{lang="joined"}: {$details->member->joined}</li>
+			</ul>
+
+		</div>
+		<div class="ipsGrid_span6">
+			<ul class="ipsList_reset">
+				<li><h2>{lang="submission_details"}</h2></li>
+				{{foreach $details->data as $name => $data}}
+				<li>{$name}: {$data|raw}</li>
+				{{endforeach}}
+			</ul></div>
+	</div>
+
+</div>]]></template>
+ <template template_group="forms" template_name="done" template_data="$form" template_location="front" template_app="applicationform"><![CDATA[<div class="ipsBox ipsPad">
+<p class='ipsType_reset ipsType_center ipsType_huge'>
+    <i class='fa fa-envelope'></i>
+</p>
+
+<h1 class='ipsType_veryLarge ipsType_center'>{lang="submitted"}</h1>
+
+<div class='ipsType_large ipsType_center ipsType_richText'>
+	{$form->submitmsg}
+</div>
+<br>
+<p class='ipsType_center'>
+    <a href='{url="/"}' class='ipsButton ipsButton_normal ipsButton_small'>{lang="go_community_home"}</a>
+</p>
+</div>]]></template>
+ <template template_group="forms" template_name="form" template_data="$application" template_location="front" template_app="applicationform"><![CDATA[<div class="ipsBox ipsPad">
+<h2 class='ipsType_sectionHead ipsSpacer_bottom'>{$application->_title}</h2>
+<div class="ipsDataItem">
+{$application->instructions}
+</div>
+<div class="ipsSpacer_top">
+{$application->form|raw}
+</div>
+</div>]]></template>
+ <template template_group="forms" template_name="index" template_data="" template_location="front" template_app="applicationform"><![CDATA[<div class="ipsBox ipsPad">
+<h1>{lang="open_positions"}</h1>
+{{if $advertisement = \IPS\core\Advertisement::loadByLocation( 'applications_overview_page' )}}
+    {$advertisement|raw}
+{{endif}}
+<ul class="ipsDataList">
+{{foreach \IPS\applicationform\Position::roots() as $position}}
+    {{if $position->can('view') }}
+    <li class="ipsDataItem ipsList_reset">
+        <div class='ipsGrid ipsSpacer_both ipsGrid_collapsePhone'>
+            <div class='ipsGrid_span2'>
+                {{if $position->icon}}
+                    <img src="{file="$position->icon" extension="applicationforms_Icons"}" alt='' class='ipsItemStatus ipsItemStatus_custom applicationFormFormIcon'>
+				{{else}}
+					<img src="{resource="app.png" app="applicationform" location="front"}" alt='' class='ipsItemStatus ipsItemStatus_custom applicationFormFormIcon'>
+                {{endif}}
+            </div>
+            <div class='ipsGrid_span7'>
+				<h2 class="ipsType_sectionHead">{$position->_title}</h2>
+				<p>{$position->description}</p>
+           </div>
+            <div class='ipsGrid_span3 ipsType_right'>
+               		{{if $position->canApply() }} <a href="{$position->url()}" class="ipsButton ipsButton_fullWidth ipsButton_normal">{lang="position_apply"}</a>{{endif}}
+            </div>
+        </div>
+    </li>
+    {{endif}}
+{{endforeach}}
+</ul>
+</div>]]></template>
+ <template template_group="forms" template_name="modcp" template_data="" template_location="front" template_app="applicationform"><![CDATA[<div class="ipsBox ipsPad">
+<ul class="ipsDataList">
+	{{foreach \IPS\applicationform\Position::roots() as $position}}
+	{{if $position->can('view') }}
+	<li class="ipsDataItem ipsList_reset">
+		<div class='ipsGrid ipsSpacer_both ipsGrid_collapsePhone'>
+			<div class=' ipsGrid_span6'>{$position->_title} </div>
+			<div class='ipsGrid_span3'>
+				{lang="open_submissions"}: <span class="ipsBadge ipsBadge_negative">{$position->openApplications}</span>
+			</div>
+			<div class='ipsGrid_span3'>
+				{{if $position->can('manage') }}<a href="{$position->modcpUrl()}" class="">{lang="manage_submissions"}</a>{{endif}}
+			</div>
+		</div>
+	</li>
+	{{endif}}
+	{{endforeach}}
+</ul>
+</div>]]></template>
+ <template template_group="forms" template_name="topic" template_data="$fields" template_location="front" template_app="applicationform"><![CDATA[<ul>
+    {{foreach $fields as $id => $field}}
+        <li><strong>{$id}</strong><br>
+            {$field|raw}
+        </li>
+    {{endforeach}}
+</ul>
+]]></template>
+ <template template_group="livesearch" template_name="position" template_data="$category" template_location="admin" template_app="applicationform"><![CDATA[<li class='ipsPad_half ipsClearfix' data-role='result'>
+    <a href='{url="app=applicationform&module={module}&controller=categories&do=form&id="}{$category->id}' class='ipsPos_left'>{$category->_title}</a>
+</li>
+
+]]></template>
+ <template template_group="table" template_name="cells" template_data="" template_location="front" template_app="applicationform"></template>
+ <template template_group="table" template_name="Table" template_data="$table, $headers, $rows, $quickSearch" template_location="front" template_app="applicationform"><![CDATA[<div data-baseurl="{$table->baseUrl}" data-resort='{$table->resortKey}' data-controller="core.global.core.table">
+	<div class='ipsClearfix'>
+		{{if $table->pages > 1}}
+		<div data-role="tablePagination" class='ipsSpacer_bottom'>
+			{template="pagination" group="global" app="core" location="global" params="$table->baseUrl, $table->pages, $table->page, $table->limit"}
+		</div>
+		{{endif}}
+		{template="buttons" params="$table->rootButtons, ''" group="global" app="core" if="isset( $headers['_buttons'] )"}
+	</div>
+	<div class="acpBlock ipsClear">
+		{{if $quickSearch !== NULL or $table->advancedSearch or !empty( $table->filters )}}
+		<div class='ipsClearfix ipsClear acpWidgetToolbar' data-role="tableSortBar">
+			{{if $quickSearch !== NULL or $table->advancedSearch}}
+			{{if $table->advancedSearch}}
+			<a class='ipsPos_right acpWidgetSearch' data-ipsTooltip aria-label='{lang="search"}' href='{$table->baseUrl->setQueryString( array( 'advancedSearchForm' => '1', 'filter' => $table->filter, 'sortby' => $table->sortBy, 'sortdirection' => $table->sortDirection ) )}' data-ipsDialog data-ipsDialog-title='{lang="search"}'><i class='fa fa-cog'></i></a>
+			{{endif}}
+			{{if $quickSearch !== NULL}}
+			<input type='text' class='ipsPos_right acpTable_search ipsJS_show' data-role='tableSearch' results placeholder="{{if is_string( $quickSearch )}}{lang="search_prefix" sprintf="\IPS\Member::loggedIn()->language()->addToStack( $table->langPrefix . $quickSearch )"}{{else}}{lang="search"}{{endif}}" value="{expression="\IPS\Request::i()->quicksearch"}">
+			{{endif}}
+			{{endif}}
+
+			{{if !empty( $table->filters )}}
+			<div class='ipsButtonBar ipsClearfix ipsResponsive_showDesktop'>
+				<ul class='ipsButtonRow ipsPos_left ipsClearfix'>
+					<li data-action="tableFilter" data-filter="">
+						<a href='{$table->baseUrl->setQueryString( array( 'sortby' => $table->sortBy, 'sortdirection' => $table->sortDirection, 'page' => '1', 'filter' => '' ) )}' class='{{if !array_key_exists( $table->filter, $table->filters )}}ipsButtonRow_active{{endif}}'>{lang="all"}</a>
+					</li>
+					{{foreach $table->filters as $k => $q}}
+					<li data-action="tableFilter" data-filter="{$k}">
+						<a href='{$table->baseUrl->setQueryString( array( 'filter' => $k, 'sortby' => $table->sortBy, 'sortdirection' => $table->sortDirection, 'page' => '1' ) )}' class='{{if $k === $table->filter}}ipsButtonRow_active{{endif}}'>{lang="$k"}</a>
+					</li>
+					{{endforeach}}
+				</ul>
+			</div>
+			{{endif}}
+			<div class='ipsButtonBar ipsClearfix ipsResponsive_hideDesktop ipsResponsive_block'>
+				{{if !empty( $table->filters )}}
+				<ul class='ipsButtonRow ipsPos_left ipsClearfix'>
+					<li>
+						<a href='#elFilterMenu_menu' data-role="tableFilterMenu" id='elFilterMenu' data-ipsMenu data-ipsMenu-activeClass='ipsButtonRow_active' data-ipsMenu-selectable="radio">{lang="filter"} <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsMenu ipsMenu_auto ipsMenu_withStem ipsMenu_selectable ipsHide' id='elFilterMenu_menu'>
+							<li data-ipsMenuValue='' class='ipsMenu_item {{if !array_key_exists( $table->filter, $table->filters )}}ipsMenu_itemChecked{{endif}}'><a href={$table->baseUrl->setQueryString( array( 'sortby' => $table->sortBy, 'sortdirection' => $table->sortDirection, 'page' => '1' ) )}'>{lang="all"}</a></li>
+							{{foreach $table->filters as $k => $q}}
+							<li class='ipsMenu_item {{if $k === $table->filter}}ipsMenu_itemChecked{{endif}}' data-action="tableFilter" data-ipsMenuValue='{$k}'><a href={$table->baseUrl->setQueryString( array( 'filter' => $k, 'sortby' => $table->sortBy, 'sortdirection' => $table->sortDirection, 'page' => '1' ) )}'>{lang="$k"}</a></li>
+							{{endforeach}}
+						</ul>
+					</li>
+				</ul>
+				{{endif}}
+				<ul class='ipsButtonRow ipsPos_left ipsClearfix'>
+					<li>
+						<a href='#elSortMenu_menu' id='elSortMenu' data-ipsMenu data-ipsMenu-activeClass='ipsButtonRow_active' data-ipsMenu-selectable="radio">{lang="sort_by"} <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsMenu ipsMenu_auto ipsMenu_withStem ipsMenu_selectable ipsHide' id='elSortMenu_menu'>
+							{{foreach $headers as $k => $header}}
+							{{if $header !== '_buttons' && !in_array( $header, $table->noSort )}}
+							<li class='ipsMenu_item {{if $header == $table->sortBy}}ipsMenu_itemChecked{{endif}}' data-ipsMenuValue='{$header}'>
+								{{if $header == $table->sortBy and $table->sortDirection == 'desc'}}
+								<a href='{$table->baseUrl->setQueryString( array( 'filter' => $table->filter, 'sortby' => $header, 'sortdirection' => 'desc' ) )}'>
+								{{else}}
+								<a href='{$table->baseUrl->setQueryString( array( 'filter' => $table->filter, 'sortby' => $header, 'sortdirection' => 'asc' ) )}'>
+								{{endif}}
+								{lang="{$table->langPrefix}{$header}"}
+								</a>
+							</li>
+							{{endif}}
+							{{endforeach}}
+						</ul>
+					</li>
+					<li>
+						<a href='#elOrderMenu_menu' id='elOrderMenu' data-ipsMenu data-ipsMenu-activeClass='ipsButtonRow_active' data-ipsMenu-selectable="radio">{lang="order_by"} <i class='fa fa-caret-down'></i></a>
+						<ul class='ipsMenu ipsMenu_auto ipsMenu_withStem ipsMenu_selectable ipsHide' id='elOrderMenu_menu'>
+							<li class='ipsMenu_item {{if $table->sortDirection == 'asc'}}ipsMenu_itemChecked{{endif}}' data-ipsMenuValue='asc'>
+							<a href='{$table->baseUrl->setQueryString( array( 'filter' => $table->filter, 'sortby' => $table->sortBy, 'sortdirection' => 'asc' ) )}'>{lang="ascending"}</a>
+							</li>
+							<li class='ipsMenu_item {{if $table->sortDirection == 'desc'}}ipsMenu_itemChecked{{endif}}' data-ipsMenuValue='desc'>
+							<a href='{$table->baseUrl->setQueryString( array( 'filter' => $table->filter, 'sortby' => $table->sortBy, 'sortdirection' => 'desc' ) )}'>{lang="descending"}</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		{{endif}}
+
+		<div data-role="extraHtml">{$table->extraHtml|raw}</div>
+
+		<table class='ipsTable ipsTable_responsive ipsTable_zebra {{foreach $table->classes as $class}}{$class} {{endforeach}}' data-role="table" data-ipsKeyNav data-ipsKeyNav-observe='e d return'>
+			<thead>
+			<tr class='ipsAreaBackground'>
+				{{foreach $headers as $k => $header}}
+				{{if $header !== '_buttons'}}
+				<th class='{{if !in_array( $header, $table->noSort )}}ipsTable_sortable {{if $header == ( mb_strrpos( $table->sortBy, ',' ) !== FALSE ? trim( mb_substr( $table->sortBy, mb_strrpos( $table->sortBy, ',' ) + 1 ) ) : $table->sortBy )}}ipsTable_sortableActive ipsTable_sortable{{if $table->sortDirection == 'asc'}}Asc{{else}}Desc{{endif}} {{else}}ipsTable_sortableAsc{{endif}}{{endif}} {{if array_key_exists( $header, $table->classes )}}{$table->classes[ $header ]}{{endif}}' data-key="{$header}" {{if !in_array( $header, $table->noSort )}}data-action="tableSort" {{if $header == ( mb_strrpos( $table->sortBy, ',' ) !== FALSE ? trim( mb_substr( $table->sortBy, mb_strrpos( $table->sortBy, ',' ) + 1 ) ) : $table->sortBy )}}aria-sort="{{if $table->sortDirection == 'asc'}}ascending{{else}}descending{{endif}}"{{endif}}{{endif}} {{if isset( $table->widths[ $header ] )}}style="width: {$table->widths[ $header ]}%"{{endif}}>
+				{{if !in_array( $header, $table->noSort )}}
+				{{if $header == $table->sortBy and $table->sortDirection == 'desc'}}
+				<a href='{$table->baseUrl->setQueryString( array( 'filter' => $table->filter, 'sortby' => $header, 'sortdirection' => 'asc' ) )}'>
+				{{else}}
+				<a href='{$table->baseUrl->setQueryString( array( 'filter' => $table->filter, 'sortby' => $header, 'sortdirection' => 'desc' ) )}'>
+				{{endif}}
+				{lang="{$table->langPrefix}{$header}"}
+				<span class='ipsTable_sortIcon'></span>
+				</a>
+				{{else}}
+				{lang="{$table->langPrefix}{$header}"}
+				{{endif}}
+				</th>
+				{{elseif $header === '_buttons'}}
+				<th>&nbsp;</th>
+				{{endif}}
+				{{endforeach}}
+			</tr>
+			</thead>
+			<tbody data-role="tableRows">
+			{template="$table->rowsTemplate[1]" params="$table, $headers, $rows" object="$table->rowsTemplate[0]"}
+			</tbody>
+		</table>
+	</div>
+	{{if $table->pages > 1}}
+	<div data-role="tablePagination" class='ipsSpacer_top'>
+		{template="pagination" group="global" app="core" location="global" params="$table->baseUrl, $table->pages, $table->page, $table->limit"}
+	</div>
+	{{endif}}
+</div>]]></template>
+ <template template_group="widgets" template_name="OpenPositions" template_data="$params, $orientation='vertical'" template_location="front" template_app="applicationform"><![CDATA[
+<h3 class='ipsType_reset ipsWidget_title'>
+   {lang="block_OpenPositions"}
+</h3>
+<div class='ipsWidget_inner {{if $orientation == 'vertical'}}ipsPad{{else}}ipsPad_half{{endif}}'>
+	<ul class="ipsDataList ipsDataList_reducedSpacing">
+		{{foreach $params as $pos}}
+		<li class="ipsDataItem">
+			<a href="{$pos->url()}" _title="{$pos->metaDescription()}" data-ipstooltip>{$pos->_title}</a>
+		</li>
+		{{endforeach}}
+
+	</ul>
+</div>]]></template>
+ <css css_location="front" css_app="applicationform" css_attributes="" css_path="." css_name="forms.css">.applicationFormFormIcon {
+    max-width: 100%;
+    max-height: 100%;
+}</css>
+ <resource name="app.png" app="applicationform" location="front" path="/">iVBORw0KGgoAAAANSUhEUgAAADsAAAA7CAMAAADy+wKBAAABGlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmLD1YAAAAXXRSTlMAAQIDBAUGBwgJCgsMDhATFBcYGhwgIiMkJygrLzEyMzg7PUBCQ0ZHSU1OUVdhYmNoa2xwdXt8fn+DhYmRkpSVmJulsLS1ubq8vsDDxc7P0dPV19ni6Ovt8ff5+/3guikpAAABcUlEQVRIx+2W2VLCMBSGU3CvCxR3seKuIO6gVoGKVVFERStIoe//GqY1dEpOLtLgDWP/mc4kJ/kmk/OfJEUo1ABoLJ3XAus8JWE02baFVJdRrGML6h0VbGGhhm3fSwJJclj8aSIZ/gP2JSMgwgrn6l+zb8khFFmsiLDlyK93mhepPjFUZ7BmlPguPZNIhl0Xd5Dd8QaXSGSVzWqQnfYGo4HZ0Z5qdXTMRKUqZKfAuvx53vTY+cDsp3cHGMH9LRD4rBtoXl129eD0i26zCFgrm9h+nMO0Us7G95tubMOXINzVSVunWCuBg/JpzfzIx3Br8ov2yHfB0B4dUkasB1h3nDax5ez32nsI3AOiu02d2u8rqIASd55zgE1zsweAXeNmtwC7gKNH7Hqu9LIqmKFwn6M9MGGZm70FE05w9GJkmKGJGuXvLIXKbf6z8L2rxH1KmeGbAthWH6zRB6sKoxZCOUG0s4IrSDUE9ty4mQn/xAdAPxKKqMISxMmDAAAAAElFTkSuQmCC</resource>
+</theme>

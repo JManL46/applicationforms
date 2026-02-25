@@ -1,0 +1,82 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "formclass",
+                "type": "MEDIUMTEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "2": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "pm_title",
+                "type": "MEDIUMTEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "3": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "pm_content",
+                "type": "MEDIUMTEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "4": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "target_post",
+                "type": "VARCHAR",
+                "length": 64,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    }
+}

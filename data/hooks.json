@@ -1,0 +1,14 @@
+{
+    "forums": {
+        "type": "S",
+        "class": "\\IPS\\Theme\\class_forums_front_forums"
+    },
+    "Forum": {
+        "type": "C",
+        "class": "\\IPS\\forums\\Forum"
+    },
+    "topics": {
+        "type": "S",
+        "class": "\\IPS\\Theme\\class_forums_front_topics"
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events>
+    <event name="applicationform.application.denied" description="fired when an application is denied">
+        <param name="$this" class="IPS\applicationform\Application">The Application Object</param>
+    </event>
+    <event name="applicationform.application.approved" description="fired when an application is approved">
+        <param name="$this" class="IPS\applicationform\Application">The Application Object</param>
+    </event>
+    <event name="applicationform.application.submitted" description="fired when an application is submitted">
+        <param name="$this" class="IPS\applicationform\Application">The Application Object</param>
+    </event>
+</events>

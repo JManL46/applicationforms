@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javascript app="applicationform">
+ <file javascript_app="applicationform" javascript_location="front" javascript_path="controllers/modcp" javascript_name="ips.modcp.item.js" javascript_type="controller" javascript_version="10048" javascript_position="1000050"><![CDATA[;( function($, _, undefined){
+    "use strict";
+
+    ips.controller.register('applicationform.front.modcp.item', {
+
+        _currentstate : null,
+
+        initialize: function () {
+            this.on( 'click', '[data-action="delete"]', this.delete );
+            this.on( 'click', '[data-action="approve"]', this.approve );
+            this.on( 'click', '[data-action="deny"]', this.deny );
+            this.setup();
+        },
+        setup: function()
+        {
+
+        },
+        approve: function(e){
+            var a = $( e.currentTarget );
+
+            ips.ui.alert.show({
+                type: 'confirm',
+                message: ips.getString('appform_approve'),
+                subText: ips.getString('appform_approve_confirm'),
+                icon: 'info',
+                callbacks: {
+                    ok: function () {
+                        ips.getAjax()( a.attr('href') + '&wasConfirmed=1' );
+                    }
+                }
+            });
+            return false;
+        },
+        deny: function(e){
+            var a = $( e.currentTarget );
+
+            ips.ui.alert.show({
+                type: 'confirm',
+                message: ips.getString('appform_deny'),
+                subText: ips.getString('appform_deny_confirm'),
+                icon: 'info',
+                callbacks: {
+                    ok: function () {
+                        ips.getAjax()( a.attr('href') + '&wasConfirmed=1' );
+                    }
+                }
+            });
+            return false;
+        },
+        /**
+         * Event handler for clicking a delete button
+         *
+         * @param	{event} 	e 		Event object
+         * @returns {void}
+         */
+        delete: function (e) {
+            var a = $( e.currentTarget );
+
+            ips.ui.alert.show({
+                type: 'confirm',
+                message: ips.getString('delete'),
+                subText: ips.getString('delete_confirm'),
+                icon: 'info',
+                callbacks: {
+                    ok: function () {
+                        ips.getAjax()( a.attr('href') + '&wasConfirmed=1' );
+                    }
+                }
+            });
+
+            return false;
+        }
+    });
+}(jQuery, _));]]></file>
+</javascript>

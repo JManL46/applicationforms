@@ -1,0 +1,10 @@
+{
+    "forms": {
+        "position": {
+            "tab": "community",
+            "controller": "position",
+            "do": "",
+            "restriction": "position_manage"
+        }
+    }
+}

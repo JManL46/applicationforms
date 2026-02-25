@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emails><template><template_app>applicationform</template_app><template_name>notification_submission</template_name><template_content_html><![CDATA[{$email->language->addToStack("go_to_the_application", FALSE)}: {$data->modCpUrl()}
+<br />
+<br />
+
+<br /><br />
+<em style='color: #8c8c8c'>&mdash; {setting="board_name"}</em>]]></template_content_html><template_data>$data, $email</template_data><template_content_plaintext><![CDATA[
+{$email->language->addToStack("go_to_the_application", FALSE)}: {$data->modCpUrl()}
+
+-- {setting="board_name"}]]></template_content_plaintext><template_pinned>0</template_pinned></template></emails>

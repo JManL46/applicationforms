@@ -1,0 +1,18 @@
+{
+  "topLevel": "application",
+  "pages": {
+    "application_formoverview": {
+      "friendly": "",
+      "real": "app=applicationform&module=applications&controller=form"
+    },
+    "application_form": {
+      "friendly": "form/{#id}-{?}",
+      "real": "app=applicationform&module=applications&controller=form"
+    },
+    /* Mod CP */
+    "modcp_application_approval": {
+      "friendly": "modcp/application-approval",
+      "real": "app=core&module=modcp&controller=modcp&tab=application_approval"
+    }
+  }
+}

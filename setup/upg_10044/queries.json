@@ -1,0 +1,42 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "icon",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "the icon of the application form",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "2": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "vote_options",
+                "type": "TEXT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "The voteoptions for poll",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    }
+}

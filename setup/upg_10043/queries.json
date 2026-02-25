@@ -1,0 +1,62 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "groupdemotion_time",
+                "type": "BIGINT",
+                "length": null,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "2": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_applications",
+            {
+                "name": "old_primary_group",
+                "type": "SMALLINT",
+                "length": 3,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "3": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_applications",
+            {
+                "name": "end_date",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    }
+}

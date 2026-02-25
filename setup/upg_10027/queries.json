@@ -1,0 +1,22 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "position",
+                "type": "INT",
+                "length": 5,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    }
+}

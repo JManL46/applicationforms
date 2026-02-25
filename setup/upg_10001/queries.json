@@ -1,0 +1,64 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_position",
+            {
+                "name": "target_forum",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": null,
+                "allow_null": false,
+                "default": "",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "2": {
+        "method": "changeColumn",
+        "params": [
+            "applicationform_position",
+            "target_forum",
+            {
+                "name": "position_target_forum",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    },
+    "3": {
+        "method": "changeColumn",
+        "params": [
+            "applicationform_position",
+            "position_target_forum",
+            {
+                "name": "target_forum",
+                "type": "INT",
+                "length": 10,
+                "decimals": null,
+                "values": [],
+                "allow_null": false,
+                "default": "0",
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    }
+}

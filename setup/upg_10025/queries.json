@@ -1,0 +1,22 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "applicationform_applications",
+            {
+                "name": "ip_address",
+                "type": "VARCHAR",
+                "length": 46,
+                "decimals": null,
+                "values": null,
+                "allow_null": true,
+                "default": null,
+                "comment": "",
+                "unsigned": false,
+                "zerofill": false,
+                "auto_increment": false,
+                "binary": false
+            }
+        ]
+    }
+}
