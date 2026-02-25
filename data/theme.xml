@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme name="Default" author_name="Invision Power Services, Inc" author_url="https://www.invisioncommunity.com">
+ <template template_group="widgets" template_name="WhoWasOnline" template_data="$members, $memberCount, $hours, $layout='table', $isCarousel=false" template_location="front" template_app="whowasonline"><![CDATA[
+<div data-controller='core.front.core.onlineUsersWidget' style="border-radius:inherit">
+    <h3 class='ipsWidget__header'>
+        <span>{lang="whowasonline_title" sprintf="$hours"}</span>
+        <span class='ipsWidget__header-secondary i-color_soft' data-memberCount="{$memberCount}" data-ipstooltip title='{lang="block_user_online_info" pluralize="$memberCount"}'><i class="fa-regular fa-user i-margin-end_icon"></i>{$memberCount}</span>
+    </h3>
+    <div class='ipsWidget__content ipsWidget__padding'>
+        <ul class='ipsList ipsList--csv'>
+            {{if $memberCount}}
+                {{if \IPS\Member::loggedIn()->canAccessModule( \IPS\Application\Module::get( 'core', 'members' ) ) }}
+                    {{foreach $members as $row}}
+                    <li data-memberId="{$row['member_id']}">
+                        <a href="{url="app=core&module=members&controller=profile&id={$row['member_id']}" seoTemplate="profile" seoTitle="$row['members_seo_name']"}" data-ipsHover data-ipsHover-target='{url="app=core&module=members&controller=profile&id={$row['member_id']}&do=hovercard" seoTemplate="profile" seoTitle="$row['members_seo_name']"}' title="{lang="view_user_profile" sprintf="$row['name']"}">{expression="\IPS\Member\Group::load( $row['member_group_id'] )->formatName( $row['name'] )" raw="true"}</a>
+                    </li>
+                    {{endforeach}}
+                {{else}}
+                    {{foreach $members as $row}}
+                        <li data-memberId="{$row['member_id']}">{{if $row['in_editor']}}<i class="fa-solid fa-circle-notch fa-spin" data-ipsTooltip data-ipsTooltip-label="{lang="block_user_in_editor"}"></i>{{endif}}
+                            {expression="\IPS\Member\Group::load( $row['member_group_id'] )->formatName( $row['name'] )" raw="true"}</li>
+                    {{endforeach}}
+                {{endif}}
+            {{else}}
+                <li class='i-color_soft i-font-weight_500' data-noneOnline>{lang="active_users_empty"}</li>
+            {{endif}}
+        </ul>
+        {{if $memberCount > 60 && $orientation == 'vertical'}}
+            <p class='i-margin-top_2 i-font-weight_500'>
+                <a href='{url="app=core&module=online&controller=online" seoTemplate="online"}' class='i-color_soft'>{lang="and_x_others" pluralize="$memberCount - 60"}</a>
+            </p>
+        {{endif}}
+    </div>
+</div>]]></template>
+</theme>

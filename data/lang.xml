@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+ <app key="whowasonline" version="10001">
+  <word key="__app_whowasonline" js="0">Who was online</word>
+  <word key="block_WhoWasOnline" js="0">Who was online</word>
+  <word key="block_WhoWasOnline_desc" js="0">Shows a list of members who have been online recently.</word>
+  <word key="whowasonline_exclude_groups" js="0">Exclude groups</word>
+  <word key="whowasonline_hours" js="0">Hours</word>
+  <word key="whowasonline_access" js="0">Who can see</word>
+  <word key="whowasonline_max_members" js="0">Max members for stat</word>
+  <word key="whowasonline_max_members_desc" js="0">0 for no limit</word>
+  <word key="whowasonline_order_by" js="0">Order by</word>
+  <word key="whowasonline_sort_order" js="0">Sort by</word>
+  <word key="whowasonline_desc" js="0">Descending (Z-A)</word>
+  <word key="whowasonline_asc" js="0">Ascending (A-Z)</word>
+  <word key="whowasonline_title" js="0">Who was online for %s hours</word>
+  <word key="whowasonline_name" js="0">Member name</word>
+  <word key="whowasonline_group" js="0">Member group</word>
+  <word key="whowasonline_last_visit" js="0">Last visit</word>
+ </app>
+</language>

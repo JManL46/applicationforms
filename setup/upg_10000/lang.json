@@ -1,0 +1,29 @@
+{
+    "normal": {
+        "added": [
+            "__app_whowasonline",
+            "block_WhoWasOnline",
+            "block_WhoWasOnline_desc",
+            "whowasonline_exclude_groups",
+            "whowasonline_hours",
+            "whowasonline_access",
+            "whowasonline_max_members",
+            "whowasonline_max_members_desc",
+            "whowasonline_order_by",
+            "whowasonline_sort_order",
+            "whowasonline_desc",
+            "whowasonline_asc",
+            "whowasonline_title",
+            "whowasonline_name",
+            "whowasonline_group",
+            "whowasonline_last_visit"
+        ],
+        "edited": [],
+        "removed": []
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}

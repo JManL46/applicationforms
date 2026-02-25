@@ -1,0 +1,17 @@
+{
+    "WhoWasOnline": {
+        "class": "\\IPS\\Widget",
+        "restrict": [
+            "sidebar",
+            "cms"
+        ],
+        "default_area": "",
+        "allow_reuse": true,
+        "menu_style": "menu",
+        "layouts": "",
+        "embeddable": false,
+        "padding": true,
+        "default_layout": null,
+        "searchterms": ""
+    }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build>
+ <widget key="WhoWasOnline"><![CDATA[{"class":"\\IPS\\Widget","restrict":["sidebar","cms"],"default_area":"","allow_reuse":true,"menu_style":"menu","layouts":"","embeddable":false,"padding":true,"default_layout":null,"searchterms":""}]]></widget>
+</build>
